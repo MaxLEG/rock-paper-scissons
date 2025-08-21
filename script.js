@@ -3,12 +3,12 @@ let computerScore = 0;
 
 const resultDisplay = document.getElementById("results");
 const scoreDisplay = document.getElementById("score");
-const buttons = document.getElementById(".container button");
+const buttons = document.querySelectorAll(".container button");
 
-function getComputerChoise() {
-  const choises = ["rock", "paper", "scissors"];
-  const randomChoise = Math.floor(Math.random() * 3);
-  return choises[randomChoise];
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  const randomChoice = Math.floor(Math.random() * 3);
+  return choices[randomChoice];
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -29,10 +29,10 @@ function playRound(playerSelection, computerSelection) {
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    const playerChoise = button.id;
-    const computerChoise = getComputerChoise();
-    const result = playRound(playerChoise, computerChoise);
-    resultDisplay.textContent = `You have chosen: ${playerChoice}. The computer has chosen: ${computerChoise}. ${result}`;
+    const playerChoice = button.id;
+    const computerChoice = getComputerChoice();
+    const result = playRound(playerChoice, computerChoice);
+    resultDisplay.textContent = `You have chosen: ${playerChoice}. The computer has chosen: ${computerChoice}. ${result}`;
     scoreDisplay.textContent = `Score: Player ${playerScore} - Computer ${computerScore}`;
   });
 });
